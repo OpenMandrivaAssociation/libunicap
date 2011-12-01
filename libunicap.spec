@@ -64,16 +64,16 @@ sed -i -e 's/\(SYSFS\|ATTRS\)/ATTRS/g' data/50-euvccam.rules
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 #remove unpackaged files
-rm -f $RPM_BUILD_ROOT%{_libdir}/unicap%{lib_major}/{backends,cpi}/*.{la,a} 
+rm -f %{buildroot}%{_libdir}/unicap%{lib_major}/{backends,cpi}/*.{la,a} 
 
 %find_lang unicap
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f unicap.lang
 %defattr(-,root,root)
