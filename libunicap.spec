@@ -90,4 +90,18 @@ rm -rf %{buildroot}
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-%{_libdir}/*.la
+
+
+%changelog
+* Tue May 10 2011 Funda Wang <fwang@mandriva.org> 0.9.12-1mdv2011.0
++ Revision: 673156
+- sync some fedora patches
+- cp old spec
+- Created package structure for libunicap.
+
+
+* Tue Jan 23 2007 Frederic Crozat <fcrozat@mandriva.com> 0.2.1-1mdv2007.0
++ Revision: 112500
+-Patch0: fix libdir for biarch
+- Import unicap
+
