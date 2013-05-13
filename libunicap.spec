@@ -5,7 +5,7 @@
 Summary: Library to access different kinds of ( video ) capture devices 
 Name: libunicap
 Version: 0.9.12
-Release: %mkrel 1
+Release: 2
 Source0: http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
 Patch0: unicap-0.9.6-v4l1.patch
 Patch1: libunicap-0.9.12-link.patch
@@ -18,7 +18,6 @@ Patch7: libunicap-bz642118.patch
 License: GPLv2+
 Group: System/Libraries
 Url: http://www.unicap-imaging.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires: pkgconfig(libraw1394)
 BuildRequires: intltool
 Conflicts: %{_lib}unicap2 < 0.9.12
