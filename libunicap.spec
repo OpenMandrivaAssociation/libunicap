@@ -19,7 +19,7 @@ License: GPLv2+
 Group: System/Libraries
 Url: http://www.unicap-imaging.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
-BuildRequires: libraw1394-devel
+BuildRequires: pkgconfig(libraw1394)
 BuildRequires: intltool
 Conflicts: %{_lib}unicap2 < 0.9.12
 
