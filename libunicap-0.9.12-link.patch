@@ -1,5 +1,5 @@
---- src/Makefile.am.link	2011-05-10 03:37:04.000000000 +0200
-+++ src/Makefile.am	2011-05-10 03:37:41.000000000 +0200
+--- ./src/Makefile.am.link	2011-05-10 03:37:04.000000000 +0200
++++ ./src/Makefile.am	2011-05-10 03:37:41.000000000 +0200
 @@ -39,6 +39,7 @@
  else
  libunicap_la_LIBADD = \
@@ -8,8 +8,8 @@
  	@M_LIBS@
  endif
  
---- src/Makefile.in.link	2011-05-10 03:37:11.000000000 +0200
-+++ src/Makefile.in	2011-05-10 03:38:08.000000000 +0200
+--- ./src/Makefile.in.link	2011-05-10 03:37:11.000000000 +0200
++++ ./src/Makefile.in	2011-05-10 03:38:08.000000000 +0200
 @@ -272,6 +272,7 @@
  @BUILD_VID21394_TRUE@LIBVID21394 = cpi/vid21394/libvid21394.la
  @ENABLE_STATIC_CPI_FALSE@libunicap_la_LIBADD = \
@@ -18,8 +18,8 @@
  @ENABLE_STATIC_CPI_FALSE@	@M_LIBS@
  
  @ENABLE_STATIC_CPI_TRUE@libunicap_la_LIBADD = \
---- cpi/euvccam/Makefile.am.link	2011-05-10 03:44:01.000000000 +0200
-+++ cpi/euvccam/Makefile.am	2011-05-10 03:44:43.000000000 +0200
+--- ./cpi/euvccam/Makefile.am.link	2011-05-10 03:44:01.000000000 +0200
++++ ./cpi/euvccam/Makefile.am	2011-05-10 03:44:43.000000000 +0200
 @@ -5,7 +5,7 @@
  libeuvccam_cpi_la_LIBADD=-lpthread 
  else
@@ -29,8 +29,8 @@
  endif
  libcpidir = $(libdir)/unicap$(pkg_version)/cpi
  
---- cpi/euvccam/Makefile.in.link	2011-05-10 03:44:14.000000000 +0200
-+++ cpi/euvccam/Makefile.in	2011-05-10 03:44:57.000000000 +0200
+--- ./cpi/euvccam/Makefile.in.link	2011-05-10 03:44:14.000000000 +0200
++++ ./cpi/euvccam/Makefile.in	2011-05-10 03:44:57.000000000 +0200
 @@ -260,7 +260,7 @@
  unicap_minor_version = @unicap_minor_version@
  INCLUDES = -I../include -I../../include -I../../ -I../../common

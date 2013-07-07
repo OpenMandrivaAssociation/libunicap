@@ -1,61 +1,51 @@
-%define lib_major	2
-%define lib_name	%mklibname unicap %{lib_major}
-%define develname	%mklibname -d unicap
+%define major	2
+%define libname	%mklibname unicap %{major}
+%define devname	%mklibname -d unicap
 
-Summary: Library to access different kinds of ( video ) capture devices 
-Name: libunicap
-Version: 0.9.12
-Release: 2
-Source0: http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
-Patch0: unicap-0.9.6-v4l1.patch
-Patch1: libunicap-0.9.12-link.patch
-Patch2: libunicap-0.9.12-includes.patch
-Patch3: libunicap-0.9.12-memerrs.patch
-Patch4: libunicap-0.9.12-arraycmp.patch
-Patch5: libunicap-0.9.12-warnings.patch
-Patch6: libunicap-bz641623.patch
-Patch7: libunicap-bz642118.patch
-License: GPLv2+
-Group: System/Libraries
-Url: http://www.unicap-imaging.org/
-BuildRequires: pkgconfig(libraw1394)
-BuildRequires: intltool
-Conflicts: %{_lib}unicap2 < 0.9.12
+Summary:	Library to access different kinds of ( video ) capture devices 
+Name:		libunicap
+Version:	0.9.12
+Release:	3
+License:	GPLv2+
+Group:		System/Libraries
+Url:		http://www.unicap-imaging.org/
+Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
+Patch0:		unicap-0.9.6-v4l1.patch
+Patch1:		libunicap-0.9.12-link.patch
+Patch2:		libunicap-0.9.12-includes.patch
+Patch3:		libunicap-0.9.12-memerrs.patch
+Patch4:		libunicap-0.9.12-arraycmp.patch
+Patch5:		libunicap-0.9.12-warnings.patch
+Patch6:		libunicap-bz641623.patch
+Patch7:		libunicap-bz642118.patch
+BuildRequires:	intltool
+BuildRequires:	pkgconfig(libraw1394)
+Conflicts:	%{_lib}unicap2 < 0.9.12-2
 
 %description
 unicap is a library to access different kinds of ( video ) capture devices. 
 
-%package -n %{lib_name}
+%package -n %{libname}
 Summary:	Dynamic libraries for Unicap
 Group:		System/Libraries
-Requires:	%{name} = %{version}
+Suggests:	%{name} = %{version}-%{release}
 
-%description -n %{lib_name}
+%description -n %{libname}
 unicap is a library to access different kinds of ( video ) capture devices. 
 
-%package -n %{develname}
-Summary:	Static libraries, include files for Unicap
+%package -n %{devname}
+Summary:	Development library, include files for Unicap
 Group:		Development/C
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{lib_name} = %{version}
-Obsoletes:	%{lib_name}-devel < %{version}
-Obsoletes:	%{name}-devel < %{version}
+Requires:	%{libname} = %{version}-%{release}
 
-%description -n %{develname}
-Static library and headers file
+%description -n %{devname}
+Development library and headers file
 needed in order to develop applications using unicap.
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p0
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-
+%apply_patches
 sed -i -e 's/\(SYSFS\|ATTRS\)/ATTRS/g' data/50-euvccam.rules
 
 %build
@@ -63,44 +53,19 @@ sed -i -e 's/\(SYSFS\|ATTRS\)/ATTRS/g' data/50-euvccam.rules
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
-
-#remove unpackaged files
-rm -f %{buildroot}%{_libdir}/unicap%{lib_major}/{backends,cpi}/*.{la,a} 
-
 %find_lang unicap
 
-%clean
-rm -rf %{buildroot}
-
 %files -f unicap.lang
-%defattr(-,root,root)
 %{_sysconfdir}/udev/rules.d/*
-%{_libdir}/unicap%{lib_major}
+%{_libdir}/unicap%{major}
 
-%files -n %{lib_name}
-%defattr(-,root,root)
-%{_libdir}/*.so.%{lib_major}*
+%files -n %{libname}
+%{_libdir}/libunicap.so.%{major}*
 
-%files -n %{develname}
-%defattr(-,root,root)
+%files -n %{devname}
 %doc %{_datadir}/gtk-doc/html/libunicap
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-
-
-%changelog
-* Tue May 10 2011 Funda Wang <fwang@mandriva.org> 0.9.12-1mdv2011.0
-+ Revision: 673156
-- sync some fedora patches
-- cp old spec
-- Created package structure for libunicap.
-
-
-* Tue Jan 23 2007 Frederic Crozat <fcrozat@mandriva.com> 0.2.1-1mdv2007.0
-+ Revision: 112500
--Patch0: fix libdir for biarch
-- Import unicap
 
