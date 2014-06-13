@@ -5,7 +5,7 @@
 Summary:	Library to access different kinds of ( video ) capture devices 
 Name:		libunicap
 Version:	0.9.12
-Release:	7
+Release:	8
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.unicap-imaging.org/
