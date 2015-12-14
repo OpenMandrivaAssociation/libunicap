@@ -1,6 +1,8 @@
 %define major	2
 %define libname	%mklibname unicap %{major}
 %define devname	%mklibname -d unicap
+%define _disable_rebuild_configure 1
+%define _disable_lto 1
 
 Summary:	Library to access different kinds of ( video ) capture devices 
 Name:		libunicap
