@@ -47,7 +47,7 @@ needed in order to develop applications using unicap.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 sed -i -e 's/\(SYSFS\|ATTRS\)/ATTRS/g' data/50-euvccam.rules
 
 %build
