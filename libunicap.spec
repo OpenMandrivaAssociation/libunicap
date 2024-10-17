@@ -10,7 +10,7 @@ Version:	0.9.12
 Release:	12
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://www.unicap-imaging.org/
+Url:		https://www.unicap-imaging.org/
 Source0:	http://www.unicap-imaging.org/downloads/%{name}-%{version}.tar.gz
 Patch0:		unicap-0.9.6-v4l1.patch
 Patch1:		libunicap-0.9.12-link.patch
