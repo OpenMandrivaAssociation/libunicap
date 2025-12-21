@@ -20,6 +20,11 @@ Patch4:		libunicap-0.9.12-arraycmp.patch
 Patch5:		libunicap-0.9.12-warnings.patch
 Patch6:		libunicap-bz641623.patch
 Patch7:		libunicap-bz642118.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(libraw1394)
 Conflicts:	%{_lib}unicap2 < 0.9.12-2
